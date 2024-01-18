@@ -1,4 +1,6 @@
-﻿namespace VisiAgeBackend.API.Dto
+﻿using VisiAgeBackend.API.Entity;
+
+namespace VisiAgeBackend.API.Dto
 {
     public class GetCameraRoomDto
     {

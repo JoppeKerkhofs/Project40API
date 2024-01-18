@@ -1,4 +1,6 @@
-﻿namespace VisiAgeBackend.API.Dto
+﻿using VisiAgeBackend.API.Entity;
+
+namespace VisiAgeBackend.API.Dto
 {
     public class GetCoughDto
     {
@@ -8,5 +10,6 @@
         public int Amount { get; set; }
         public string? AudioPath { get; set; }
         public int DependentId { get; set; }
+        public GetUserDto? Dependent { get; set; }
     }
 }

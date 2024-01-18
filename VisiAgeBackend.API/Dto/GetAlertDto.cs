@@ -1,4 +1,6 @@
-﻿namespace VisiAgeBackend.API.Dto
+﻿using VisiAgeBackend.API.Entity;
+
+namespace VisiAgeBackend.API.Dto
 {
     public class GetAlertDto
     {
@@ -9,7 +11,10 @@
         public string? VideoPath { get; set; }
         public string? Reason { get; set; }
         public int IncidentTypeId { get; set; }
+        public GetIncidentTypeDto IncidentType { get; set; }
         public int CameraRoomId { get; set; }
+        public GetCameraRoomDto CameraRoom { get; set; }
         public int DependentId { get; set; }
+        public GetUserDto Dependent { get; set; }
     }
 }

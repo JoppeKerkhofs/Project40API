@@ -190,6 +190,7 @@ namespace VisiAgeBackend.API.Controllers
         public async Task<ActionResult<List<GetCoughDto>>> GetCoughs()
         {
             var coughs = await _context.Coughs
+                .Include(t => t.Dependent)
                 .ToListAsync();
 
             if (coughs == null)
@@ -204,6 +205,7 @@ namespace VisiAgeBackend.API.Controllers
         public async Task<ActionResult<GetCoughDto>> GetCough(int id)
         {
             var cough = await _context.Coughs
+                .Include(t => t.Dependent)
                 .SingleAsync(t => t.Id == id);
 
             if (cough == null)
@@ -307,6 +309,9 @@ namespace VisiAgeBackend.API.Controllers
         public async Task<ActionResult<List<GetAlertDto>>> GetAlerts()
         {
             var alert = await _context.Alerts
+                .Include(t => t.IncidentType)
+                .Include(t => t.CameraRoom)
+                .Include(t => t.Dependent)
                 .ToListAsync();
 
             if (alert == null)
@@ -321,6 +326,9 @@ namespace VisiAgeBackend.API.Controllers
         public async Task<ActionResult<GetAlertDto>> GetAlert(int id)
         {
             var alert = await _context.Alerts
+                .Include(t => t.IncidentType)
+                .Include(t => t.CameraRoom)
+                .Include(t => t.Dependent)
                 .SingleAsync(t => t.Id == id);
 
             if (alert == null)
@@ -346,6 +354,8 @@ namespace VisiAgeBackend.API.Controllers
         public async Task<ActionResult<List<GetAlertStatusDto>>> GetAlertStatuses()
         {
             var alertStatus = await _context.AlertStatuses
+                .Include(t => t.AlertStatusType)
+                .Include(t => t.Resolver)
                 .ToListAsync();
 
             if (alertStatus == null)
@@ -360,6 +370,8 @@ namespace VisiAgeBackend.API.Controllers
         public async Task<ActionResult<GetAlertStatusDto>> GetAlertStatus(int id)
         {
             var alertStatus = await _context.AlertStatuses
+                .Include(t => t.AlertStatusType)
+                .Include(t => t.Resolver)
                 .SingleAsync(t => t.Id == id);
 
             if (alertStatus == null)
