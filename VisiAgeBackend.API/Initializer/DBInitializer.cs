@@ -6,7 +6,7 @@ namespace VisiAgeBackend.API.Initializer
     {
         public static void Initialize(VisiAgeDbContext context)
         {
-            context.Database.EnsureDeleted();
+            //context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             if (!context.Roles.Any())
