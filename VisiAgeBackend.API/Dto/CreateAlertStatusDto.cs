@@ -3,7 +3,7 @@ using VisiAgeBackend.API.Entity;
 
 namespace VisiAgeBackend.API.Dto
 {
-    public class CreateAlertStatus
+    public class CreateAlertStatusDto
     {
         public DateTime TimeStamp { get; set; }
         public string? Message { get; set; }

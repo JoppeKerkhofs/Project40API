@@ -35,8 +35,8 @@ app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
-    var tripContext = scope.ServiceProvider.GetRequiredService<VisiAgeDbContext>();
-    DBInitializer.Initialize(tripContext);
+    var visiAgeContext = scope.ServiceProvider.GetRequiredService<VisiAgeDbContext>();
+    DBInitializer.Initialize(visiAgeContext);
 }
 
 app.Run();
