@@ -19,6 +19,6 @@ namespace VisiAgeBackend.API.Entity
         [ForeignKey("User")]
         public int DependentId { get; set; }
         public User Dependent { get; set; }
-        public ICollection<AlertStatus>? AlertStatuses { get; set; }
+        public AlertStatus? AlertStatus { get; set; }
     }
 }

@@ -36,6 +36,7 @@ namespace VisiAgeBackend.API.Mapper
 
             CreateMap<GetAlertStatusDto, AlertStatus>();
             CreateMap<CreateAlertStatusDto, AlertStatus>();
+            CreateMap<EditAlertStatusDto, AlertStatus>();
             CreateMap<AlertStatus, GetAlertStatusDto>();
 
             CreateMap<GetAlertStatusTypeDto, AlertStatusType>();

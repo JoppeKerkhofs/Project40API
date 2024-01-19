@@ -111,13 +111,13 @@ namespace VisiAgeBackend.API
 
             modelBuilder.Entity<AlertStatus>()
                 .HasOne(e => e.Alert)
-                .WithMany(e => e.AlertStatuses)
-                .HasForeignKey(e => e.AlertId)
+                .WithOne(e => e.AlertStatus)
+                .HasForeignKey<AlertStatus>("AlertId")
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Alert>()
-                .HasMany(e => e.AlertStatuses)
+                .HasOne(e => e.AlertStatus)
                 .WithOne(e => e.Alert);
 
             modelBuilder.Entity<AlertStatus>()

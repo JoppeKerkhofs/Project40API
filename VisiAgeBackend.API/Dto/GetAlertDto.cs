@@ -16,5 +16,6 @@ namespace VisiAgeBackend.API.Dto
         public GetCameraRoomDto CameraRoom { get; set; }
         public int DependentId { get; set; }
         public GetUserDto Dependent { get; set; }
+        public GetAlertStatusDto AlertStatus { get; set; } 
     }
 }

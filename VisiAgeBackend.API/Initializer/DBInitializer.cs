@@ -186,6 +186,14 @@ namespace VisiAgeBackend.API.Initializer
                         CameraRoomId = 2,
                         DependentId = 1,
                     },
+                    new Alert {
+                        TimeStamp = new DateTime(2024,01,17,09,10,00),
+                        KeepFootage = false,
+                        AccuracyScore = 84,
+                        IncidentTypeId = 2,
+                        CameraRoomId = 2,
+                        DependentId = 1,
+                    },
                 };
 
                 foreach (Alert a in alerts)
@@ -226,11 +234,6 @@ namespace VisiAgeBackend.API.Initializer
                         ResolverId = 2,
                     },
                     new AlertStatus {
-                        TimeStamp = new DateTime(2024,01,17,09,40,00),
-                        AlertId = 1,
-                        AlertStatusTypeId = 4,
-                    },
-                    new AlertStatus {
                         TimeStamp = new DateTime(2024,01,15,14,20,00),
                         AlertId = 2,
                         AlertStatusTypeId = 1,
@@ -240,6 +243,11 @@ namespace VisiAgeBackend.API.Initializer
                         TimeStamp = new DateTime(2024,01,18,18,15,00),
                         AlertId = 3,
                         AlertStatusTypeId = 2,
+                    },
+                    new AlertStatus {
+                        TimeStamp = new DateTime(2024,01,17,09,40,00),
+                        AlertId = 4,
+                        AlertStatusTypeId = 4,
                     },
                 };
 

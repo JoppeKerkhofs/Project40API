@@ -312,6 +312,7 @@ namespace VisiAgeBackend.API.Controllers
                 .Include(t => t.IncidentType)
                 .Include(t => t.CameraRoom)
                 .Include(t => t.Dependent)
+                .Include(t => t.AlertStatus).ThenInclude(t => t.AlertStatusType)
                 .ToListAsync();
 
             if (alert == null)
@@ -329,6 +330,7 @@ namespace VisiAgeBackend.API.Controllers
                 .Include(t => t.IncidentType)
                 .Include(t => t.CameraRoom)
                 .Include(t => t.Dependent)
+                .Include(t => t.AlertStatus).ThenInclude(t => t.AlertStatusType)
                 .SingleAsync(t => t.Id == id);
 
             if (alert == null)
