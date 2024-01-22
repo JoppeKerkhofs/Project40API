@@ -395,6 +395,34 @@ namespace VisiAgeBackend.API.Controllers
             return CreatedAtAction(nameof(GetAlertStatus), new { id = alertStatusToReturn.Id }, alertStatusToReturn);
         }
 
+        [HttpPut("alertstatus/{id}")]
+        public async Task<ActionResult<GetAlertStatusDto>> EditAlertStatus(int id, EditAlertStatusDto alertStatusDto)
+        {
+            try
+            {
+                var alertStatus = await _context.AlertStatuses
+                    .SingleAsync(t => t.Id == id);
+
+                if (alertStatus == null)
+                {
+                    return NotFound();
+                }
+
+                _mapper.Map(alertStatusDto, alertStatus);
+
+                _context.AlertStatuses.Update(alertStatus);
+                await _context.SaveChangesAsync();
+
+                var updatedAlertStatusDto = _mapper.Map<GetAlertStatusDto>(alertStatus);
+                return Ok(updatedAlertStatusDto);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it as needed
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
+            }
+        }
+
         [HttpGet("alertstatustype")]
         public async Task<ActionResult<List<GetAlertStatusTypeDto>>> GetAlertStatusTypes()
         {
